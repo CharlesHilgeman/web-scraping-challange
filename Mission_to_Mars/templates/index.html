@@ -7,8 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  ​<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href='/static/style.css'>
 
 </head> 
 
@@ -27,7 +25,7 @@
 </head>
 
 <body>
-    <body class="text-white, text-center" style="background-color:black;">
+    <body class="text-white, text-center">
         <div class="container">
 
     <div class="container-fluid">
@@ -40,51 +38,49 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="text-align: center; color: white">Read the Latest Mars News</h1>
-                <h3 style="text-align: center; color: gray">{{ mars.news_title }}</h3>
-                <p style="text-align: center; color: rgb(241, 121, 8)">{{ mars.news_paragraph }}</p>
+                <h1 style="text-align: center; color: black">Read the Latest Mars News</h1>
+                <h3 style="text-align: center; color: orangered">{{ mars.news_title }}</h3>
+                <p style="text-align: center; color: orange">{{ mars.news_paragraph }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <h1 style="text-align: center; color: white">Featured Mars Image</h1>
+                <h1 style="text-align: center; color: orangered">Featured Mars Image</h1>
                 <a href="{{mars.featured_image_url}}" target="_blank"><img style="width:100%" src="{{mars.featured_image_url}}"></a>
             </div>
             <div class="col-md-4">
-                <h1 style="text-align: center; color: white">Mars Facts</h1>
+                <h1 style="text-align: center; color: orangered">Mars Facts</h1>
                 <div style="max-width: 450px; max-height: 150px; font-size: 10px; margin-bottom: 25px;"></div>
-                <div>{{ mars.mars_facts|safe }}</div>
+                <div>{{ mars.mars_facts|safe}}</div>
             </div>
         </div>
-        <hr style="border-width:0px;color:rgb(241, 121, 8);">
+        <hr style="border-width:0px;color:orange;">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="padding-top: 1px; margin-top: 1px; text-align: center; color: white">Mars Hemispheres</h1>
-                <hr style="border-width:0px;color:rgb(241, 121, 8)">
+                <h1 style="padding-top: 1px; margin-top: 1px; text-align: center; color: orangered">Mars Hemispheres</h1>
+                <hr style="border-width:0px;color:orange">
             </div>
         </div>
 
         <div class="col-md-12">
         <div class="row">
-            {% for hemi in mars.hemispheres[0:2] %}
+            {% for hemisphere in mars.hemispheres[0:2] %}
             <div class="col-md-6">
-                <div class="card text-white bg-dark" style="margin: 10px;"></div>
-                <h3>{{hemi.title}}</h3>
-                <a href="{{hemi.img_url}}" target="_blank"><img style="width:50%" src="{{hemi.img_url}}"></a>
+                <div class="card text-black bg-dark" style="margin: 10px;"></div>
+                <h3>{{hemisphere.title}}</h3>
+                <a href="{{hemisphere.img_url}}" target="_blank"><img style="width:50%" src="{{hemisphere.img_url}}"></a>
             </div>
             {% endfor %}
-        </div>
         <div class="col-md-12">
         <div class="row">
-            {% for hemi in mars.hemispheres[2:4] %}
+            {% for hemisphere in mars.hemispheres[2:4] %}
             <div class="col-md-6">
                 <div class="card text-white bg-dark" style="margin: 30px;"></div>
-                <h3>{{hemi.title}}</h3>
-                <a href="{{hemi.img_url}}" target="_blank"><img style="width:50%" src="{{hemi.img_url}}"></a>
+                <h3>{{hemisphere.title}}</h3>
+                <a href="{{hemisphere.img_url}}" target="_blank"><img style="width:50%" src="{{hemisphere.img_url}}"></a>
             </div>
             {% endfor %}
         </div>
-
     </div>
     
 </body>
