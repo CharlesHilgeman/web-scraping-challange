@@ -64,23 +64,15 @@
 
         <div class="col-md-12">
         <div class="row">
-            {% for hemisphere in mars.hemispheres[0:2] %}
-            <div class="col-md-6">
+
+            {% for hemisphere in mars.hemispheres %}
+            <div class="col-md-3">
                 <div class="card text-black bg-dark" style="margin: 10px;"></div>
                 <h3>{{hemisphere.title}}</h3>
                 <a href="{{hemisphere.img_url}}" target="_blank"><img style="width:50%" src="{{hemisphere.img_url}}"></a>
             </div>
             {% endfor %}
-        <div class="col-md-12">
-        <div class="row">
-            {% for hemisphere in mars.hemispheres[2:4] %}
-            <div class="col-md-6">
-                <div class="card text-white bg-dark" style="margin: 30px;"></div>
-                <h3>{{hemisphere.title}}</h3>
-                <a href="{{hemisphere.img_url}}" target="_blank"><img style="width:50%" src="{{hemisphere.img_url}}"></a>
-            </div>
-            {% endfor %}
-        </div>
+
     </div>
     
 </body>

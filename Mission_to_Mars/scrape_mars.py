@@ -62,20 +62,22 @@ def scrape_mars():
 
         results = soup.find('div', class_='downloads')
         more_results = soup.find('div', class_='cover')
-
+        
         for x in range(1):
             image_url = results.find('img', class_='thumb')['src']
             hemisphere = more_results.find('h2', class_='title').text
 
-            image_url_list.append(original_url+image_url)
-            hemisphere_title_list.append(hemisphere)
+            image_url_edit = original_url+image_url
 
+            image_url_list.append(image_url_edit)
+            hemisphere_title_list.append(hemisphere)
+    
     hemisphere_list = []
     for hemi in hemisphere_title_list:
         hemi_title = hemi.replace(' Enhanced', '')
-        hemisphere_list.append(hemi_title)
-
-        hemisphere_dict = [{'title': hemisphere_list[0],'img_url':image_url_list[0]},{'title': hemisphere_list[1],'img_url': image_url_list[1]},{'title': hemisphere_list[2],'img_url':image_url_list[2]},{'title': hemisphere_list[3],'img_url': image_url_list[3]}]
+        hemisphere_list.append(hemi_title)        
+        
+    hemisphere_dict = [{'title': hemisphere_list[0],'img_url':image_url_list[0]},{'title': hemisphere_list[1],'img_url': image_url_list[1]},{'title': hemisphere_list[2],'img_url':image_url_list[2]},{'title': hemisphere_list[3],'img_url': image_url_list[3]}]
 
     browser.quit()
     final_data = {
